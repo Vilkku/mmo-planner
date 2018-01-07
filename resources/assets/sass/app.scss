@@ -1,0 +1,176 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+.panel-class {
+	.panel-body {
+		background-size: auto 200px;
+		background-repeat: no-repeat;
+		background-position: right -50px center;
+		background-color: #181818;
+		border-bottom: 1px solid;
+
+		&:last-child {
+			border-bottom: 0;
+		}
+
+		&-warrior {
+			h4 {
+				color: $class-warrior;
+			}
+
+			background-image: url('/images/classes/warrior_crest.png');
+		}
+
+		&-paladin {
+			h4 {
+				color: $class-paladin;
+			}
+
+			background-image: url('/images/classes/paladin_crest.png');
+		}
+
+		&-hunter {
+			h4 {
+				color: $class-hunter;
+			}
+
+			background-image: url('/images/classes/hunter_crest.png');
+		}
+
+		&-rogue {
+			h4 {
+				color: $class-rogue;
+			}
+
+			background-image: url('/images/classes/rogue_crest.png');
+		}
+
+		&-priest {
+			h4 {
+				color: $class-priest;
+			}
+
+			background-image: url('/images/classes/priest_crest.png');
+		}
+
+		&-deathknight {
+			h4 {
+				color: $class-deathknight;
+			}
+
+			background-image: url('/images/classes/deathknight_crest.png');
+		}
+
+		&-shaman {
+			h4 {
+				color: $class-shaman;
+			}
+
+			background-image: url('/images/classes/shaman_crest.png');
+		}
+
+		&-mage {
+			h4 {
+				color: $class-mage;
+			}
+
+			background-image: url('/images/classes/mage_crest.png');
+		}
+
+		&-warlock {
+			h4 {
+				color: $class-warlock;
+			}
+
+			background-image: url('/images/classes/warlock_crest.png');
+		}
+
+		&-monk {
+			h4 {
+				color: $class-monk;
+			}
+
+			background-image: url('/images/classes/monk_crest.png');
+		}
+
+		&-druid {
+			h4 {
+				color: $class-druid;
+			}
+
+			background-image: url('/images/classes/druid_crest.png');
+		}
+
+		&-demonhunter {
+			h4 {
+				color: $class-demonhunter;
+			}
+
+			background-image: url('/images/classes/demonhunter_crest.png');
+		}
+	}
+}
+
+.class-icon {
+	height: 30px;
+	width: 30px;
+	display: inline-block;
+	background-size: 30px;
+	background-repeat: no-repeat;
+	vertical-align: middle;
+
+	&-warrior {
+		background-image: url('/images/classes/warrior_icon.png');
+	}
+
+	&-paladin {
+		background-image: url('/images/classes/paladin_icon.png');
+	}
+
+	&-hunter {
+		background-image: url('/images/classes/hunter_icon.png');
+	}
+
+	&-rogue {
+		background-image: url('/images/classes/rogue_icon.png');
+	}
+
+	&-priest {
+		background-image: url('/images/classes/priest_icon.png');
+	}
+
+	&-deathknight {
+		background-image: url('/images/classes/deathknight_icon.png');
+	}
+
+	&-shaman {
+		background-image: url('/images/classes/shaman_icon.png');
+	}
+
+	&-mage {
+		background-image: url('/images/classes/mage_icon.png');
+	}
+
+	&-warlock {
+		background-image: url('/images/classes/warlock_icon.png');
+	}
+
+	&-monk {
+		background-image: url('/images/classes/monk_icon.png');
+	}
+
+	&-druid {
+		background-image: url('/images/classes/druid_icon.png');
+	}
+
+	&-demonhunter {
+		background-image: url('/images/classes/demonhunter_icon.png');
+	}
+}
