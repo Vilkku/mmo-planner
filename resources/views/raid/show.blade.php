@@ -10,7 +10,7 @@
                         <p>{{ $raid->description }}</p>
                     </div>
                 </div>
-                @if (!empty($characters))
+                @if (!is_null($characters) && !$characters->isEmpty())
                     <div class="panel panel-default">
                         <div class="panel-heading">Sign up</div>
                         <div class="panel-body">
@@ -30,7 +30,7 @@
                             <div class="form-group">
                                 {!! Form::submit('Sign up', ['class' => 'btn btn-default']) !!}
                             </div>
-                        {!! Form::close() !!}
+                            {!! Form::close() !!}
                         </div>
                     </div>
                 @endif
@@ -45,6 +45,27 @@
                                 @endforeach
                             </ul>
                         @endforeach
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Comments</div>
+                    <div class="panel-body">
+                        @if (!$comments->isEmpty())
+                            <ul>
+                                @foreach ($comments as $comment)
+                                    <li>{{ $comment->body }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
+                        {!! Form::open(['url' => route('raidComment', ['id' => $raid->id])]) !!}
+                        <div class="form-group">
+                            {!! Form::label('comment', 'Comment') !!}
+                            {!! Form::textarea('comment', null, ['class' => 'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::submit('Submit', ['class' => 'btn btn-default']) !!}
+                        </div>
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>

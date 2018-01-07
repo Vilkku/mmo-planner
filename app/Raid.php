@@ -11,6 +11,11 @@ class Raid extends Model
 
     protected $dates = ['deleted_at', 'start_time', 'end_time'];
 
+    public function comments()
+    {
+        return $this->morphMany('App\Comment', 'commentable');
+    }
+
     public function signups()
     {
         return $this->hasMany('App\Signup');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use App\Raid;
 use App\Role;
 use App\Signup;
@@ -20,7 +21,9 @@ class RaidController extends Controller
 
     public function show(Request $request)
     {
-        $raid = Raid::findOrFail($request->raid);
+        $raid = Raid::with('comments.user', 'signups')
+            ->findOrFail($request->raid);
+
         $characters = null;
 
         if (Auth::user()) {
@@ -49,7 +52,8 @@ class RaidController extends Controller
             ->with('raid', $raid)
             ->with('signups', $signups)
             ->with('roles', $roles)
-            ->with('statuses', $statuses);
+            ->with('statuses', $statuses)
+            ->with('comments', $raid->comments);
     }
 
     public function signUp(Request $request)
@@ -78,6 +82,24 @@ class RaidController extends Controller
 
                 $signup->save();
             }
+        }
+
+        return redirect()->route('raid', $request->raid);
+    }
+
+    public function comment(Request $request)
+    {
+        $raid = Raid::findOrFail($request->raid);
+
+        if (Auth::user() && !empty($request->comment)) {
+            $comment = new Comment();
+
+            $comment->body = $request->comment;
+
+            $comment->user()->associate(Auth::user());
+            $comment->commentable()->associate($raid);
+
+            $comment->save();
         }
 
         return redirect()->route('raid', $request->raid);

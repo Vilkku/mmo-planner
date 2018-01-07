@@ -24,4 +24,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/raids/{raid}', 'RaidController@show')->name('raid');
 Route::post('/raids/{raid}', 'RaidController@signUp')->name('raidSignUp');
+Route::post('/raids/{raid}/comment', 'RaidController@comment')->name('raidComment');
 Route::get('/raids', 'RaidController@index')->name('raids');
